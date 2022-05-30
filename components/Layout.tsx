@@ -1,10 +1,11 @@
 import { Heading } from "@chakra-ui/react";
+import Navigation from "./Navigation";
 
 export default function Layout({ children }) {
     return (
-        <div>
-        <Heading>Bitcoin Developers</Heading>
+        <> 
+         <Navigation />       
         {children}
-        </div>
+        </>
     );
 }
