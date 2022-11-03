@@ -3,26 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "tsc --noEmit && eslint --ext .ts,.tsx,.js,.jsx"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^2.0.1",
-    "@chakra-ui/react": "^2.0.0",
-    "@emotion/react": "^11.9.0",
-    "@emotion/styled": "^11.8.1",
-    "framer-motion": "^6.3.3",
-    "next": "12.1.6",
-    "react": "18.1.0",
-    "react-dom": "18.1.0"
-  },
-  "devDependencies": {
-    "@types/node": "^17.0.36",
-    "@types/react": "^18.0.9",
-    "eslint": "8.15.0",
-    "eslint-config-next": "12.1.6",
-    "typescript": "^4.7.2"
+    "@types/node": "18.11.9",
+    "@types/react": "18.0.24",
+    "@types/react-dom": "18.0.8",
+    "next": "13.0.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "4.8.4"
   }
 }
