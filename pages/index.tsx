@@ -9,7 +9,7 @@ import {MenuIcon, SunIcon, MoonIcon} from "@bitcoin-design/bitcoin-icons-react/f
 export default function Home() {
   const [darkMode, setDarkMode] = React.useState(false)
   const [prefersDarkMode, setPrefersDarkMode] = React.useState(false)
-  const [menuHidden, setMenuHidden] = React.useState(false)
+  const [menuHidden, setMenuHidden] = React.useState(true)
 
   const applyColorMode = ()=> {
     if(prefersDarkMode && localStorage.darkMode === '0') {
