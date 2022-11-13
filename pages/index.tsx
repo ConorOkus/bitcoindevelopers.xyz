@@ -52,11 +52,11 @@ export default function Home() {
   const navLinks = [
     {
       label: 'Twitch',
-      uri: ''
+      uri: 'https://www.twitch.tv/bitcoindevelopers'
     },
     {
-      label: 'Meetup',
-      uri: ''
+      label: 'Youtube',
+      uri: 'https://www.youtube.com/channel/UCUq_ZdezVWKPvkWRicAYxLA'
     },
   ]
 
