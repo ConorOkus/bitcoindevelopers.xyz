@@ -3,10 +3,9 @@
 @tailwind utilities;
 
 html {
-    @apply bg-white text-black;
+    @apply bg-white text-black bg-[url('/bg-light.svg')] bg-repeat bg-center bg-auto;
 }
 
 html.dark {
-    @apply bg-black text-white;
+    @apply bg-black text-white bg-[url('/bg-dark.svg')];
 }
-
