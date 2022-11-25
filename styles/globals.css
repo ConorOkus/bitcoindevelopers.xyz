@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-    @apply bg-white text-black bg-[url('/bg-light.svg')] bg-repeat bg-center bg-auto;
+    @apply bg-white text-black bg-[url('/bg-light.svg')] bg-repeat bg-center bg-auto bg-fixed;
 }
 
 html.dark {

@@ -1,0 +1,22 @@
+[
+    {
+        "slug": "lightning",
+        "title": "Lightning"
+    },
+    {
+        "slug": "on-chain",
+        "title": "On-chain"
+    },
+    {
+        "slug": "bdk",
+        "title": "BDK"
+    },
+    {
+        "slug": "ldk",
+        "title": "LDK"
+    },
+    {
+        "slug": "ux",
+        "title": "UX"
+    }
+]

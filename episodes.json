@@ -1,0 +1,106 @@
+[
+    {
+        "title": "Build a Bitcoin Wallet Backed by a Core Node",
+        "guest": "Raj Maitra",
+        "number": 1,
+        "image": "RajMaitra.jpg",
+        "placeholderImage": "RajMaitra@16px.jpg",
+        "tags": ["bdk", "bitcoin-core", "on-chain"]
+    },
+    {
+        "title": "How to Review a Bitcoin Core Pull Request",
+        "guest": "Gloria Zhao",
+        "number": 2,
+        "image": "GloriaZhao.jpg",
+        "placeholderImage": "GloriaZhao@16px.jpg",
+        "tags": ["bitcoin-core", "on-chain"]
+    },
+    {
+        "title": "Android Development: Make Your First App with BDK",
+        "guest": "thunderbiscuit",
+        "number": 3,
+        "image": "thunderbiscuit.jpg",
+        "placeholderImage": "thunderbiscuit@16px.jpg",
+        "tags": ["bdk", "on-chain"]
+    },
+    {
+        "title": "Connecting Blockchain Data with LDK",
+        "guest": "Jeff Czyz",
+        "number": 4,
+        "image": "JeffCzyz.jpg",
+        "placeholderImage": "JeffCzyz@16px.jpg",
+        "tags": ["ldk", "lightning"]
+    },
+    {
+        "title": "Designing with Bitcoin UI Kit",
+        "guest": "Christoph One",
+        "number": 5,
+        "image": "ChristophOno.jpg",
+        "placeholderImage": "ChristophOno@16px.jpg",
+        "tags": ["ux", "ui"]
+    },
+    {
+        "title": "Previewing Taproot Transactions in BDK",
+        "guest": "Alekos Filini",
+        "number": 6,
+        "image": "AlekosFilini.jpg",
+        "placeholderImage": "AlekosFilini@16px.jpg",
+        "tags": ["bdk", "taproot"]
+    },
+    {
+        "title": "Learning BDK from the Command Line",
+        "guest": "Steve Myers",
+        "number": 7,
+        "image": "SteveMyers.jpg",
+        "placeholderImage": "SteveMyers@16px.jpg",
+        "tags": ["bdk", "on-chain"]
+    },
+    {
+        "title": "Creating a Sample Lightning Node with LDK",
+        "guest": "Val Wallace",
+        "number": 8,
+        "image": "ValWallace.jpg",
+        "placeholderImage": "ValWallace@16px.jpg",
+        "tags": ["ldk", "lightning"]
+    },
+    {
+        "title": "Adding BIP21 Support for Bitcoin and Lightning Payment Requests",
+        "guest": "Stephen DeLorme",
+        "number": 9,
+        "image": "StephenDeLorme.jpg",
+        "placeholderImage": "StephenDeLorme@16px.jpg",
+        "tags": ["on-chain", "lightning", "ux"]
+    },
+    {
+        "title": "A First Look at Teleport: a CoinSwap Implementation",
+        "guest": "Chris Belcher",
+        "number": 10,
+        "image": "ChrisBelcher.jpg",
+        "placeholderImage": "ChrisBelcher@16px.jpg",
+        "tags": ["on-chain"]
+    },
+    {
+        "title": "React Native Development: Make Your First App with BDK-RN",
+        "guest": "Bitcoin Zavior",
+        "number": 11,
+        "image": "BitcoinZavior.jpg",
+        "placeholderImage": "BitcoinZavior@16px.jpg",
+        "tags": ["bdk", "react-native", "on-chain"]
+    },
+    {
+        "title": "Rapid Gossip Sync with LDK",
+        "guest": "Arik Sosman",
+        "number": 12,
+        "image": "ArikSosman.jpg",
+        "placeholderImage": "ArikSosman@16px.jpg",
+        "tags": ["ldk", "lightning"]
+    },
+    {
+        "title": "BIP324: Improving bitcoin’s P2P transport protocol",
+        "guest": "Dhruv Mehta",
+        "number": 13,
+        "image": "DhruvMehta.jpg",
+        "placeholderImage": "DhruvMehta@16px.jpg",
+        "tags": ["bitcoin-core"]
+    }
+]
