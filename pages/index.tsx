@@ -7,6 +7,7 @@ import BdLogotype from '../components/BdLogotype'
 import {MenuIcon, SunIcon, MoonIcon} from "@bitcoin-design/bitcoin-icons-react/filled"
 import episodes from "../episodes.json"
 import tags from "../tags.json"
+import upcoming from "../upcoming.json"
 
 export default function Home() {
   const [darkMode, setDarkMode] = React.useState(false)
@@ -118,8 +119,57 @@ export default function Home() {
             </div>
           </header>
         
-          <div>
-            Hero Block
+          <div className="bg-dark-1 bg-center bg-cover p-8 lg:grid lg:grid-cols-8 lg:gap-8">
+            <div className="lg:w-full lg:col-span-5">
+              <div className="bg-bd-navy-100 text-white p-8 flex flex-col space-y-2 drop-shadow-lg mb-8 md:space-y-4 lg:w-full">
+                <p className="uppercase text-bd-orange-500 text-xl md:text-3xl">
+                  Up Next
+                </p>
+                <p className="text-xl md:text-4xl xl:text-5xl">
+                  {upcoming.title}
+                </p>
+                <p className="text-gray-400 text-xl font-light md:text-3xl lg:text-4xl">
+                  January 3, 2009, 18:30 UTC
+                </p>
+              </div>
+            </div>
+
+            <div className="mb-8 w-3/5 ml-auto lg:w-full lg:ml-0 lg:col-span-3">
+              <div className="relative">
+                <Image
+                  src={'/ProfilePhotos/' + upcoming.guest.image}
+                  alt={upcoming.guest.name}
+                  placeholder="blur"
+                  blurDataURL={'/ProfilePhotos/' + upcoming.guest.placeholderImage}
+                  width="384"
+                  height="384"
+                  layout="responsive"
+                  className="drop-shadow-lg"
+                />
+                <span className="bg-bd-navy-200 text-bd-orange-500 p-4 absolute -bottom-6 -right-6 text-lg drop-shadow-lg lg:text-3xl">
+                  {upcoming.guest.name}
+                </span>
+              </div>
+            
+            </div>
+
+            <div className="mb-8 w-3/5 md:m-0 md:w-1/3 lg:col-span-2 lg:col-start-4 lg:w-full">
+              <div className="relative">
+                <Image
+                    src={'/ProfilePhotos/' + upcoming.host.image}
+                    alt={upcoming.host.name}
+                    placeholder="blur"
+                    blurDataURL={'/ProfilePhotos/' + upcoming.host.placeholderImage}
+                    width="384"
+                    height="384"
+                    layout="responsive"
+                    className="drop-shadow-lg"
+                  />
+                <span className="bg-bd-navy-200 text-bd-orange-500 p-4 absolute -bottom-6 -right-6 text-lg drop-shadow-lg lg:text-3xl">
+                  {upcoming.host.name}
+                </span>
+              </div>
+            </div>
           </div>
 
           <p>
