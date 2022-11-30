@@ -8,6 +8,8 @@ import {MenuIcon, SunIcon, MoonIcon} from "@bitcoin-design/bitcoin-icons-react/f
 import episodes from "../episodes.json"
 import tags from "../tags.json"
 import upcoming from "../upcoming.json"
+import Button from '../components/Button'
+import { kMaxLength } from 'buffer'
 
 export default function Home() {
   const [darkMode, setDarkMode] = React.useState(false)
@@ -149,8 +151,7 @@ export default function Home() {
                 <span className="bg-bd-navy-200 text-bd-orange-500 p-4 absolute -bottom-6 -right-6 text-lg drop-shadow-lg lg:text-3xl">
                   {upcoming.guest.name}
                 </span>
-              </div>
-            
+              </div>     
             </div>
 
             <div className="mb-8 w-3/5 md:m-0 md:w-1/3 lg:col-span-2 lg:col-start-4 lg:w-full">
@@ -172,42 +173,22 @@ export default function Home() {
             </div>
           </div>
 
-          <p>
-            Bitcoin Developers is a Twitch stream focused on helping you learn bitcoin and lightning development from industry professionals. 
-          </p>
-
-          <p>Twitch</p>
-          <p>YouTube</p>
-
-          <div>
-            <p>
-              Bitcoin ipsum dolor sit amet. Hashrate private key, cryptocurrency double-spend problem stacking sats block height Merkle Tree! Stacking sats proof-of-work address digital signature proof-of-work hashrate hash, proof-of-work! Whitepaper block height electronic cash UTXO blockchain Merkle Tree digital signature Satoshi Nakamoto.
-            </p>
-            
-            <p>
-              Bitcoin Improvement Proposal, stacking sats consensus block height full node, nonce satoshis cryptocurrency. Blocksize, hard fork nonce timestamp server address, timestamp server genesis block! Mempool bitcoin electronic cash, proof-of-work mining cryptocurrency mining. Consensus electronic cash.
+          <div className="p-8 flex flex-col space-y-8">
+            <p className="text-center text-lg md:text-2xl lg:text-3xl xl:text-4xl max-w-4xl mx-auto">
+              Bitcoin Developers is a Twitch stream focused on helping you learn bitcoin and lightning development from industry professionals. 
             </p>
 
-            <p>
-              Electronic cash stacking sats cryptocurrency mining mempool segwit, mining Bitcoin Improvement Proposal block reward. Halvening whitepaper digital signature address hash UTXO satoshis, double-spend problem wallet. Transaction mining Bitcoin Improvement Proposal blockchain, address, bitcoin satoshis genesis block. Blockchain, outputs hashrate, key pair Bitcoin Improvement Proposal transaction, blocksize.
-            </p>
-
-            <p>
-              Public key Satoshi Nakamoto soft fork whitepaper Merkle Tree whitepaper, satoshis SHA-256. Address segwit UTXO peer-to-peer whitepaper public key, hard fork! Cryptocurrency peer-to-peer blockchain Merkle Tree genesis block difficulty consensus Satoshi Nakamoto UTXO.
-            </p>
-
-            <p>
-              Bitcoin Improvement Proposal difficulty whitepaper nonce UTXO SHA-256 private key SHA-256 transaction. Mining digital signature soft fork cryptocurrency, key pair public key private key full node. Address mempool Bitcoin Improvement Proposal whitepaper, proof-of-work miner segwit miner.
-            </p>
-
-
-
-
-
+            <ul className="flex flex-row space-x-4 mx-auto max-w-4xl mx-auto items-center justify-center">
+              {navLinks.map((navLink, key)=>(
+                <li>
+                  <Button href={navLink.uri}>{navLink.label}</Button>
+                </li>
+              ))}
+            </ul>
           </div>
           
           <div className="px-8">
-            <div className="flex flex-col items-start md:flex-row md:items-center md:justify-between">
+            <div className="flex flex-col items-start md:flex-row md:items-center md:justify-between my-8">
               <h2 className="text-2xl mb-4">Past Episodes</h2>
               
               <div className="flex flex-col space-y-2 mb-4 items-start md:flex-row md:space-y-0 md:space-x-2 md:items-center">
