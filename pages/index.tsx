@@ -134,7 +134,7 @@ export default function Home({episodes}: {episodes: Array<any>;}){
                       width="384"
                       height="384"
                       placeholder="blur"
-                      blurDataURL={'/ProfilePhoto/' + episode.frontmatter.placeholderImage}
+                      blurDataURL={'/ProfilePhotos/' + episode.frontmatter.placeholderImage}
                       className="border border-gray-700 mx-auto block drop-shadow-lg"
                     />
                   : ''}
