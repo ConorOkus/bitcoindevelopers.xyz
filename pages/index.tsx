@@ -187,7 +187,7 @@ export default function Home() {
             </ul>
           </div>
           
-          <div className="px-8">
+          <div className="px-8 pb-16">
             <div className="flex flex-col items-start md:flex-row md:items-center md:justify-between my-8">
               <h2 className="text-2xl mb-4">Past Episodes</h2>
               
