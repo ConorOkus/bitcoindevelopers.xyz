@@ -44,7 +44,6 @@ export default function Home(){
                 blurDataURL={'/ProfilePhotos/' + upcoming.guest.placeholderImage}
                 width="384"
                 height="384"
-                layout="responsive"
                 className="drop-shadow-lg"
             />
             <span className="bg-bd-navy-200 text-bd-orange-500 p-4 absolute -bottom-6 -right-6 text-lg drop-shadow-lg lg:text-3xl">
@@ -62,7 +61,6 @@ export default function Home(){
                 blurDataURL={'/ProfilePhotos/' + upcoming.host.placeholderImage}
                 width="384"
                 height="384"
-                layout="responsive"
                 className="drop-shadow-lg"
             />
             <span className="bg-bd-navy-200 text-bd-orange-500 p-4 absolute -bottom-6 -right-6 text-lg drop-shadow-lg lg:text-3xl">
@@ -79,7 +77,7 @@ export default function Home(){
 
         <ul className="flex flex-row space-x-4 mx-auto max-w-4xl mx-auto items-center justify-center">
           {navLinks.map((navLink, key)=>(
-              <li>
+              <li key={key}>
                 <Button href={navLink.uri}>{navLink.label}</Button>
               </li>
           ))}
