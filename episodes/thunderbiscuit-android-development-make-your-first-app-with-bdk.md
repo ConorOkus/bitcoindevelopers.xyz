@@ -6,8 +6,6 @@ image: "thunderbiscuit.jpg"
 placeholderImage: "thunderbiscuit@16px.jpg"
 ---
 
-# Build a Bitcoin Wallet Backed by a Core Node
-
 ## Bitcoin ipsum dolor sit amet
 
 Address freefall together price action hard fork mining sats segwit soft fork. Decentralized, fee market I'm in it for the tech bitcoin SHA-256 private key full node. Timestamp server proof-of-work public key miner to the moon sats bitcoin to the moon. Private key outputs, mining electronic cash cryptocurrency hyperbitcoinization fee market Bitcoin Improvement Proposal. Key pair outputs blockchain, outputs, when lambo transaction!
@@ -21,5 +19,3 @@ Full node private key satoshis space citadel block height, double-spend problem 
 Digital signature genesis block, hodl public key I'm in it for the tech! Blockchain digital signature mempool whitepaper money printer go brrrrr electronic cash cryptocurrency pizza transaction. Transaction consensus Bitcoin Improvement Proposal freefall together to the moon, block reward cryptocurrency. Public key full node miner cryptocurrency when lambo private key public key!
 
 Freefall together Bitcoin Improvement Proposal inputs, when lambo few understand this whitepaper mining whitepaper deflationary monetary policy? Double-spend problem stacking sats satoshis UTXO inputs outputs roller coaster money printer go brrrrr, roller coaster. When lambo consensus inputs UTXO blockchain deflationary monetary policy, miner hashrate. Hyperbitcoinization consensus fee market Satoshi Nakamoto genesis block mempool pizza. Deflationary monetary policy hash.
-
-~~~~
