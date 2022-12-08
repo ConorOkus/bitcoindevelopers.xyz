@@ -36,9 +36,31 @@ export async function getStaticProps({params:{slug}}: {params:{slug: string;}} )
 export default function Episode({frontmatter, slug, content}: {frontmatter: {title: string; guest: string;}; slug: string; content: string;}) {
     return (
         <Layout title={frontmatter.title + ' - ' + frontmatter.guest} slug={slug}>
-            <h1>{frontmatter.title}</h1>
+            <div className="bg-bd-navy-200 relative h-0 w-full pb-[56.25%] overflow-hidden">
+                <iframe
+                    width="1920"
+                    height="1080"
+                    src="https://www.youtube.com/embed/GHSIPltK-mQ"
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full absolute top-0 left-0 h-full"
+                >
+                </iframe>
+            </div>
 
-            <div dangerouslySetInnerHTML={{__html: marked(content)}}></div>
+            <div className="p-8 max-w-4xl mx-auto flex flex-col space-y-4">
+                <h1 className="text-4xl">{frontmatter.title}</h1>
+
+                <p className="text-2xl">{frontmatter.guest}</p>
+
+                <div
+                    className="flex flex-col space-y-4"
+                    dangerouslySetInnerHTML={{__html: marked(content)}}
+                ></div>
+            </div>
+
         </Layout>
     )
 }
