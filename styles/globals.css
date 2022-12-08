@@ -9,3 +9,7 @@ html {
 html.dark {
     @apply bg-black text-white bg-[url('/bg-dark.svg')];
 }
+
+strong {
+    @apply font-semibold;
+}

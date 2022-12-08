@@ -31,6 +31,9 @@ module.exports = {
         'dark-1': "url('/bg-dark-1.svg')"
       }
     },
+    fontFamily: {
+      'sans': ['Manrope', 'system-ui', 'sans-serif']
+    },
   },
   plugins: [],
 }

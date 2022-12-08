@@ -71,6 +71,9 @@ export default function Home() {
         <title>Bitcoin Developers</title>
         <meta name="description" content="Bitcoin Developers is a Twitch stream focused on helping you learn bitcoin and lightning development from industry professionals." />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&display=swap" rel="stylesheet" />
       </Head>
 
       <main className="w-full">
@@ -110,7 +113,7 @@ export default function Home() {
             
             <div className="relative grow-1">
               <nav className={(menuHidden ? 'max-md:-top-48 max-md:pointer-events-none max-md:opacity-0 ' : 'opacity-100 top-0 ') + 'w-full max-md:bg-white max-md:dark:bg-bd-navy-200 absolute z-50 p-4 flex flex-col space-y-4 items-center transition-all duration-300 md:relative'}>
-                <ul className="flex flex-col md:flex-row">
+                <ul className="flex flex-col md:flex-row font-semibold">
                   {navLinks.map((navLink, key)=>(
                     <li key={key}>
                       <a href={navLink.uri} className="p-4 text-lg md:text-base block">{navLink.label}</a>
@@ -124,10 +127,10 @@ export default function Home() {
           <div className="bg-dark-1 bg-center bg-cover p-8 lg:grid lg:grid-cols-8 lg:gap-8">
             <div className="lg:w-full lg:col-span-5">
               <div className="bg-bd-navy-100 text-white p-8 flex flex-col space-y-2 drop-shadow-lg mb-8 md:space-y-4 lg:w-full">
-                <p className="uppercase text-bd-orange-500 text-xl md:text-3xl">
+                <p className="uppercase text-bd-orange-500 text-xl md:text-3xl font-semibold">
                   Up Next
                 </p>
-                <p className="text-xl md:text-4xl xl:text-5xl">
+                <p className="leading-snug text-xl md:text-4xl md:leading-snug xl:text-5xl xl:leading-snug font-semibold">
                   {upcoming.title}
                 </p>
                 <p className="text-gray-400 text-xl font-light md:text-3xl lg:text-4xl">
@@ -189,10 +192,10 @@ export default function Home() {
           
           <div className="px-8 pb-16">
             <div className="flex flex-col items-start md:flex-row md:items-center md:justify-between my-8">
-              <h2 className="text-2xl mb-4">Past Episodes</h2>
+              <h2 className="text-4xl mb-4 font-semibold">Past Episodes</h2>
               
               <div className="flex flex-col space-y-2 mb-4 items-start md:flex-row md:space-y-0 md:space-x-2 md:items-center">
-                <label className="uppercase" id="tags-label">Filter</label>
+                <label className="uppercase font-semibold text-xl" id="tags-label">Filter</label>
 
                 <div className="flex flex-row flex-wrap mb-4" aria-describedby="tags-label">
                   {tags.map((tag)=>(
