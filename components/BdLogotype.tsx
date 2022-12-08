@@ -1,5 +1,5 @@
 interface LogotypeProps {
-    className: string
+    className?: string
 }
 
 const BdLogotype = (props:LogotypeProps)=> {

@@ -1,5 +1,5 @@
 interface BdIconProps {
-    className: string
+    className?: string
 }
 
 const BdIcon = (props:BdIconProps)=> {
