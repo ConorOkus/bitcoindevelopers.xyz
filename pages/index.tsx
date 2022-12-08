@@ -1,12 +1,33 @@
 import Layout from "../components/Layout"
-import upcoming from "../upcoming.json";
-import Image from "next/image";
-import Button from "../components/Button";
-import tags from "../tags.json";
-import episodes from "../episodes.json";
-import React from "react";
+import upcoming from "../upcoming.json"
+import Image from "next/image"
+import Button from "../components/Button"
+import tags from "../tags.json"
+import React from "react"
+import fs from "fs"
+import path from "path"
+import matter from "gray-matter"
+import Link from "next/link"
 
-export default function Home(){
+export async function getStaticProps(){
+  const files = fs.readdirSync(path.join('episodes'))
+
+  const episodes = files.map(filename => {
+    const slug = filename.replace('.md', '')
+    const markdownWithMeta = fs.readFileSync(path.join('episodes', filename), 'utf-8')
+    const {data:frontmatter} = matter(markdownWithMeta)
+
+    return{slug, frontmatter}
+  })
+
+  return {
+    props: {
+      episodes: episodes
+    }
+  }
+}
+
+export default function Home({episodes}: {episodes: Array<any>;}){
   const navLinks = [
     {
       label: 'Twitch',
@@ -102,25 +123,35 @@ export default function Home(){
         </div>
 
         <div className="grid grid-cols gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-16">
-          {episodes.map((episode)=>(
-              <div className="flex flex-col">
+          {episodes.map((episode: { slug: string; frontmatter: { image: string; guest: string; placeholderImage: string; title: string; }; })=>(
+            <div className="flex flex-col">
+              <Link href={'/episodes/' + episode.slug}>
                 <div className="bg-dark-1 bg-center bg-cover p-12 relative">
-                  {episode.image ?
-                      <Image
-                          src={'/ProfilePhoto/' + episode.image}
-                          alt={episode.guest}
-                          width="384"
-                          height="384"
-                          placeholder="blur"
-                          blurDataURL={'/ProfilePhoto/' + episode.placeholderImage}
-                          className="border border-gray-700 mx-auto block drop-shadow-lg"
-                      />
-                      : ''}
-                  <span className="bg-bd-navy-200 text-bd-orange-500 p-2 drop-shadow-md absolute bottom-8 right-8">{episode.guest}</span>
+                  {episode.frontmatter.image ?
+                    <Image
+                      src={'/ProfilePhoto/' + episode.frontmatter.image}
+                      alt={episode.frontmatter.guest}
+                      width="384"
+                      height="384"
+                      placeholder="blur"
+                      blurDataURL={'/ProfilePhoto/' + episode.frontmatter.placeholderImage}
+                      className="border border-gray-700 mx-auto block drop-shadow-lg"
+                    />
+                  : ''}
+                  <span className="bg-bd-navy-200 text-bd-orange-500 p-2 drop-shadow-md absolute bottom-8 right-8">{episode.frontmatter.guest}</span>
                 </div>
-                <h3 className="text-2xl">{episode.title}</h3>
-                <p className="text-lg font-semibold">{episode.guest}</p>
-              </div>
+              </Link>
+              <h3 className="text-2xl">
+                <Link href={'/episodes/' + episode.slug}>
+                  {episode.frontmatter.title}
+                </Link>
+              </h3>
+              <p className="text-lg font-semibold">
+                <Link href={'/episodes/' + episode.slug}>
+                  {episode.frontmatter.guest}
+                </Link>
+              </p>
+            </div>
           ))}
         </div>
       </div>

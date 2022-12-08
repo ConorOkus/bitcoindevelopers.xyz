@@ -6,7 +6,8 @@ import {MenuIcon, SunIcon, MoonIcon} from "@bitcoin-design/bitcoin-icons-react/f
 
 interface LayoutProps {
     title?: string,
-    children: ReactNode
+    children: ReactNode,
+    slug?: string
 }
 
 export default function Layout(props:LayoutProps) {
