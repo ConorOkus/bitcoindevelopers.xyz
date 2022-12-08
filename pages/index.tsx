@@ -129,7 +129,7 @@ export default function Home({episodes}: {episodes: Array<any>;}){
                 <div className="bg-dark-1 bg-center bg-cover p-12 relative">
                   {episode.frontmatter.image ?
                     <Image
-                      src={'/ProfilePhoto/' + episode.frontmatter.image}
+                      src={'/ProfilePhotos/' + episode.frontmatter.image}
                       alt={episode.frontmatter.guest}
                       width="384"
                       height="384"
