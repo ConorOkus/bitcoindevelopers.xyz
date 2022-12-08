@@ -4,6 +4,7 @@ guest: "thunderbiscuit"
 number: 3
 image: "thunderbiscuit.jpg"
 placeholderImage: "thunderbiscuit@16px.jpg"
+video: "https://www.youtube.com/watch?v=r6opVPa9YJI"
 ---
 
 ## Bitcoin ipsum dolor sit amet

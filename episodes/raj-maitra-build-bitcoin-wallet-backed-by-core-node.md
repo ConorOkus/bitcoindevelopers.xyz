@@ -4,6 +4,7 @@ guest: "Raj Maitra"
 number: 1
 image: "RajMaitra.jpg"
 placeholderImage: "RajMaitra@16px.jpg"
+video: "https://www.youtube.com/watch?v=GHSIPltK-mQ"
 ---
 
 ## Bitcoin ipsum dolor sit amet

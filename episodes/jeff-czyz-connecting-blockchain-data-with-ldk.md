@@ -4,6 +4,7 @@ guest: "Jeff Czyz"
 number: 4
 image: "JeffCzyz.jpg"
 placeholderImage: "JeffCzyz@16px.jpg"
+video: "https://www.youtube.com/watch?v=30RnUU2xSoE"
 ---
 
 ## Bitcoin ipsum dolor sit amet
