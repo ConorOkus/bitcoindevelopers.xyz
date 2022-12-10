@@ -39,6 +39,12 @@ export default function Home({episodes}: {episodes: Array<any>;}){
     },
   ]
 
+  const sortedEpisodes = ()=>{
+    return episodes.sort((a,b) => {
+      return b.frontmatter.number - a.frontmatter.number
+    })
+  }
+
   return (
     <Layout>
       <div className="bg-dark-1 bg-center bg-cover p-8 lg:grid lg:grid-cols-8 lg:gap-8">
@@ -123,7 +129,7 @@ export default function Home({episodes}: {episodes: Array<any>;}){
         </div>
 
         <div className="grid grid-cols gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-16">
-          {episodes.map((episode: { slug: string; frontmatter: { image: string; guest: string; placeholderImage: string; title: string; }; })=>(
+          {sortedEpisodes().map((episode: { slug: string; frontmatter: { image: string; guest: string; placeholderImage: string; title: string; }; })=>(
             <div className="flex flex-col">
               <Link href={'/episodes/' + episode.slug}>
                 <div className="bg-dark-1 bg-center bg-cover p-12 relative">

@@ -1,7 +1,7 @@
 ---
 title: "How to Review a Bitcoin Core Pull Request"
 guest: "Gloria Zhao"
-number: 2,
+number: 2
 image: "GloriaZhao.jpg"
 placeholderImage: "GloriaZhao@16px.jpg"
 video: "https://www.youtube.com/watch?v=u132F0nCjxo"
