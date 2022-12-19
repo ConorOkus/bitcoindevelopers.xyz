@@ -5,6 +5,7 @@ number: 3
 image: "thunderbiscuit.jpg"
 placeholderImage: "thunderbiscuit@16px.jpg"
 video: "https://www.youtube.com/watch?v=r6opVPa9YJI"
+tags: ["bdk", "on-chain"]
 ---
 
 ## Bitcoin ipsum dolor sit amet

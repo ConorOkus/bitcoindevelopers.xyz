@@ -8,6 +8,10 @@
         "title": "On-chain"
     },
     {
+        "slug": "bitcoin-core",
+        "title": "Bitcoin Core"
+    },
+    {
         "slug": "bdk",
         "title": "BDK"
     },

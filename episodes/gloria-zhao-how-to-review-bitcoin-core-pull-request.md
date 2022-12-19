@@ -5,6 +5,7 @@ number: 2
 image: "GloriaZhao.jpg"
 placeholderImage: "GloriaZhao@16px.jpg"
 video: "https://www.youtube.com/watch?v=u132F0nCjxo"
+tags: ["bitcoin-core", "on-chain"]
 ---
 
 ## Bitcoin ipsum dolor sit amet

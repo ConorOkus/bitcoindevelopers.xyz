@@ -7,7 +7,8 @@ import React from "react"
 import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
-import Link from "next/link"
+import TagRow from "../components/TagRow"
+import EpisodeGrid from "../components/EpisodeGrid"
 
 export async function getStaticProps(){
   const files = fs.readdirSync(path.join('episodes'))
@@ -39,10 +40,24 @@ export default function Home({episodes}: {episodes: Array<any>;}){
     },
   ]
 
-  const sortedEpisodes = ()=>{
-    return episodes.sort((a,b) => {
+  const formattedEpisodes = ()=>{
+    let sorted = episodes.sort((a,b) => {
       return b.frontmatter.number - a.frontmatter.number
     })
+
+    let formatted: any[] = []
+
+    for(let i=0; i < sorted.length; i++) {
+      formatted = [...formatted, {
+        slug: sorted[i].slug,
+        title: sorted[i].frontmatter.title,
+        guest: sorted[i].frontmatter.guest,
+        image: sorted[i].frontmatter.image,
+        placeholderImage: sorted[i].frontmatter.placeholderImage,
+      }]
+    }
+
+    return formatted
   }
 
   return (
@@ -112,54 +127,16 @@ export default function Home({episodes}: {episodes: Array<any>;}){
       </div>
 
       <div className="px-8 pb-16">
-        <div className="flex flex-col items-start md:flex-row md:items-center md:justify-between my-8">
+        <div className="flex flex-col items-start lg:flex-row lg:items-center lg:justify-between my-8">
           <h2 className="text-4xl mb-4 font-semibold">Past Episodes</h2>
 
           <div className="flex flex-col space-y-2 mb-4 items-start md:flex-row md:space-y-0 md:space-x-2 md:items-center">
-            <label className="uppercase font-semibold text-xl" id="tags-label">Filter</label>
-
-            <div className="flex flex-row flex-wrap mb-4" aria-describedby="tags-label">
-              {tags.map((tag)=>(
-                  <span className="bg-bd-navy-200 text-white dark:bg-white dark:text-bd-navy-200 p-2 rounded mr-2 md:mr-0 md:ml-2 mb-2">
-                    {tag.title}
-                  </span>
-              ))}
-            </div>
+            <label className="uppercase font-semibold text-xl md:mr-2" id="tags-label">Filter</label>
+            <TagRow tags={tags} ariaDescribedby="tags-label" className="md:ml-4" />
           </div>
         </div>
 
-        <div className="grid grid-cols gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-16">
-          {sortedEpisodes().map((episode: { slug: string; frontmatter: { image: string; guest: string; placeholderImage: string; title: string; }; })=>(
-            <div className="flex flex-col">
-              <Link href={'/episodes/' + episode.slug}>
-                <div className="bg-dark-1 bg-center bg-cover p-12 relative">
-                  {episode.frontmatter.image ?
-                    <Image
-                      src={'/ProfilePhotos/' + episode.frontmatter.image}
-                      alt={episode.frontmatter.guest}
-                      width="384"
-                      height="384"
-                      placeholder="blur"
-                      blurDataURL={'/ProfilePhotos/' + episode.frontmatter.placeholderImage}
-                      className="border border-gray-700 mx-auto block drop-shadow-lg"
-                    />
-                  : ''}
-                  <span className="bg-bd-navy-200 text-bd-orange-500 p-2 drop-shadow-md absolute bottom-8 right-8">{episode.frontmatter.guest}</span>
-                </div>
-              </Link>
-              <h3 className="text-2xl">
-                <Link href={'/episodes/' + episode.slug}>
-                  {episode.frontmatter.title}
-                </Link>
-              </h3>
-              <p className="text-lg font-semibold">
-                <Link href={'/episodes/' + episode.slug}>
-                  {episode.frontmatter.guest}
-                </Link>
-              </p>
-            </div>
-          ))}
-        </div>
+        <EpisodeGrid episodes={formattedEpisodes()} />
       </div>
     </Layout>
   )
