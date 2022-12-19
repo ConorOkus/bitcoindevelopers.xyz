@@ -39,7 +39,11 @@ export default function Episode({frontmatter, slug, content}: {frontmatter: {
         tags: any;
         title: string; guest: string; video: string;}; slug: string; content: string;}) {
 
-    let videoId = frontmatter.video.slice(frontmatter.video.indexOf('?v=')+3)
+    let videoId:string = ''
+
+    if(frontmatter.video.indexOf('?v=') >= 0) videoId = frontmatter.video.slice(frontmatter.video.indexOf('?v=')+3)
+    else if(frontmatter.video.indexOf('.be/') >= 0) videoId = frontmatter.video.slice( frontmatter.video.indexOf('.be/') + 4 )
+
     let foundTags: any[] = []
     for(let i=0; i < tags.length; i++) {
         if(frontmatter.tags.includes(tags[i].slug)) foundTags = [...foundTags, tags[i]]
