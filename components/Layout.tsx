@@ -70,7 +70,7 @@ export default function Layout(props:LayoutProps) {
             <Head>
                 <title>{props.title ? props.title + " | " : ""}Bitcoin Developers</title>
                 <meta name="description" content="Bitcoin Developers is a Twitch stream focused on helping you learn bitcoin and lightning development from industry professionals." />
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="/bitcoin-devs-favicon.svg" />
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
                 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&display=swap" rel="stylesheet" />
