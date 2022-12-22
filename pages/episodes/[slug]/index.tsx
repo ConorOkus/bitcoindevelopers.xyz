@@ -74,7 +74,7 @@ export default function Episode({frontmatter, slug, content}: {frontmatter: {
 
 
                 <div
-                    className="flex flex-col space-y-4"
+                    className="flex flex-col space-y-4 episode-notes"
                     dangerouslySetInnerHTML={{__html: marked(content)}}
                 ></div>
             </div>

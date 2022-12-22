@@ -13,3 +13,15 @@ html.dark {
 strong {
     @apply font-semibold;
 }
+
+.episode-notes h2 {
+    @apply text-2xl;
+}
+
+.episode-notes ul {
+    @apply list-disc;
+}
+
+.episode-notes a {
+    @apply underline;
+}
