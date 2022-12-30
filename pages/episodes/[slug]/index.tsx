@@ -6,6 +6,7 @@ import matter from "gray-matter"
 import {marked} from "marked"
 import tags from "../../../tags.json"
 import TagRow from "../../../components/TagRow"
+import EpisodeGrid from "../../../components/EpisodeGrid";
 
 export async function getStaticPaths(){
     const files = fs.readdirSync(path.join('episodes'))
@@ -26,18 +27,33 @@ export async function getStaticProps({params:{slug}}: {params:{slug: string;}} )
     const markdownWithMeta = fs.readFileSync(path.join('episodes', slug + '.md'), 'utf-8')
     const {data:frontmatter, content} = matter(markdownWithMeta)
 
+    let related:any = []
+
+    if(frontmatter.related) {
+        frontmatter.related.map((episode: string)=>{
+            let relatedMarkdownWithMeta = fs.readFileSync(path.join('episodes', episode + '.md'), 'utf-8')
+            let parsed = matter(relatedMarkdownWithMeta)
+            related = [...related, parsed.data]
+        })
+    }
+
     return {
         props: {
             frontmatter,
             slug,
-            content
+            content,
+            related
         }
     }
 }
 
-export default function Episode({frontmatter, slug, content}: {frontmatter: {
+export default function Episode({frontmatter, slug, content, related}: {frontmatter: {
         tags: any;
-        title: string; guest: string; video: string;}; slug: string; content: string;}) {
+        title: string;
+        guest: string;
+        video: string;
+        related: any;
+    }; slug: string; content: string; related: any[];}) {
 
     let videoId:string = ''
 
@@ -72,13 +88,21 @@ export default function Episode({frontmatter, slug, content}: {frontmatter: {
                     <TagRow tags={foundTags} />
                 </div>
 
-
                 <div
                     className="flex flex-col space-y-4 episode-notes"
                     dangerouslySetInnerHTML={{__html: marked(content)}}
                 ></div>
+
             </div>
 
+            <div className="px-8 pb-24">
+                {related.length > 0 ?
+                    <>
+                        <h2 className="text-2xl mb-4">Related episodes</h2>
+                        <EpisodeGrid episodes={related} />
+                    </>
+                : ``}
+            </div>
         </Layout>
     )
 }
