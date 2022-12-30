@@ -6,7 +6,7 @@ image: "ArikSosman.jpg"
 placeholderImage: "ArikSosman@16px.jpg"
 video: "https://www.youtube.com/watch?v=EtgLKeCbAsw"
 tags: ["ldk", "lightning"]
-related: ["creating-sample-lightning-node-ldk", "jeff-czyz-connecting-blockchain-data-with-ldk"]
+related: ["val-wallace-creating-sample-lightning-node-ldk", "jeff-czyz-connecting-blockchain-data-with-ldk"]
 ---
 
 Waiting for your Lightning wallet to sync the network graph every time you open your phone makes for a horrible user experience. We will sync from a semi-trusted source in this episode using Rapid Gossip Sync.

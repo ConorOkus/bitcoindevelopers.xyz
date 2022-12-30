@@ -6,7 +6,7 @@ image: "SteveMyers.jpg"
 placeholderImage: "SteveMyers@16px.jpg"
 video: "https://www.youtube.com/watch?v=-Q8OD8NCEe4"
 tags: ["bdk", "on-chain"]
-related: ["thunderbiscuit-android-development-make-your-first-app-with-bdk", "raj-maitra-build-bitcoin-wallet-backed-by-core-node", "previewing-taproot-transactions-bdk"]
+related: ["thunderbiscuit-android-development-make-your-first-app-with-bdk", "raj-maitra-build-bitcoin-wallet-backed-by-core-node", "alekos-filini-previewing-taproot-transactions-bdk"]
 ---
 
 In this stream, BDK co-founder Steve Myers teaches us how to use the bdk-cli to level up our BDK skills. We learned how to create a wallet with two different spending policies using miniscript and descriptors.
