@@ -29,6 +29,9 @@ module.exports = {
       },
       backgroundImage: {
         'dark-1': "url('/bg-dark-1.svg')"
+      },
+      animation: {
+        'spin-slow': 'spin 2s linear infinite',
       }
     },
     fontFamily: {

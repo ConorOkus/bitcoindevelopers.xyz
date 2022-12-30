@@ -25,3 +25,19 @@ strong {
 .episode-notes a {
     @apply underline;
 }
+
+.video-preview.ready:hover img {
+    @apply blur scale-105;
+}
+
+.video-preview:hover .icon-container {
+    @apply bg-black/25;
+}
+
+.video-preview:hover svg {
+    @apply opacity-40;
+}
+
+.youtube iframe {
+    @apply w-full absolute top-0 left-0 h-full;
+}
