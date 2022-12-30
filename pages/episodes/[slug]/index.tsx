@@ -33,6 +33,7 @@ export async function getStaticProps({params:{slug}}: {params:{slug: string;}} )
         frontmatter.related.map((episode: string)=>{
             let relatedMarkdownWithMeta = fs.readFileSync(path.join('episodes', episode + '.md'), 'utf-8')
             let parsed = matter(relatedMarkdownWithMeta)
+            parsed.data.slug = episode
             related = [...related, parsed.data]
         })
     }
