@@ -3,12 +3,13 @@ import upcoming from "../upcoming.json"
 import Image from "next/image"
 import Button from "../components/Button"
 import tags from "../tags.json"
-import React from "react"
+import React, {useState} from "react"
 import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
 import TagRow from "../components/TagRow"
 import EpisodeGrid from "../components/EpisodeGrid"
+import TwitchStream from "../components/TwitchStream";
 
 export async function getStaticProps(){
   const files = fs.readdirSync(path.join('episodes'))
@@ -29,6 +30,13 @@ export async function getStaticProps(){
 }
 
 export default function Home({episodes}: {episodes: Array<any>;}){
+  const [twitchLive, setTwitchLive] = useState(false)
+  const checkedStream = React.useRef(false)
+
+  const currentTime = new Date()
+  const upcomingDateTime = new Date(upcoming.dateTime)
+  const twitchSrc = "https://player.twitch.tv/?channel=" + process.env.NEXT_PUBLIC_TWITCH_USER_LOGIN + "&parent=" + process.env.NEXT_PUBLIC_BD_DOMAIN
+
   const navLinks = [
     {
       label: 'Twitch',
@@ -60,57 +68,76 @@ export default function Home({episodes}: {episodes: Array<any>;}){
     return formatted
   }
 
+  React.useEffect(()=>{
+    if(!checkedStream.current) {
+      fetch('/api/checkStream')
+        .then((response) => response.json())
+        .then((result)=>{
+          if(result.success && result.streaming) setTwitchLive(true)
+          return result
+        })
+    }
+    return ()=> {checkedStream.current = true}
+  }, [twitchLive])
+
   return (
     <Layout>
-      <div className="bg-dark-1 bg-center bg-cover p-8 lg:grid lg:grid-cols-8 lg:gap-8">
-        <div className="lg:w-full lg:col-span-5">
-          <div className="bg-bd-navy-100 text-white p-8 flex flex-col space-y-2 drop-shadow-lg mb-8 md:space-y-4 lg:w-full">
-            <p className="uppercase text-bd-orange-500 text-xl md:text-3xl font-semibold">
-              Up Next
-            </p>
-            <p className="leading-snug text-xl md:text-4xl md:leading-snug xl:text-5xl xl:leading-snug font-semibold">
-              {upcoming.title}
-            </p>
-            <p className="text-gray-400 text-xl font-light md:text-3xl lg:text-4xl">
-              January 3, 2009, 18:30 UTC
-            </p>
+      {twitchLive || currentTime.getTime() > upcomingDateTime.getTime() ?
+        <TwitchStream src={twitchSrc} />
+      :
+        <div className="bg-dark-1 bg-center bg-cover p-8 lg:grid lg:grid-cols-8 lg:gap-8">
+          <div className="lg:w-full lg:col-span-5">
+            <div className="bg-bd-navy-100 text-white p-8 flex flex-col space-y-2 drop-shadow-lg mb-8 md:space-y-4 lg:w-full">
+              <p className="uppercase text-bd-orange-500 text-xl md:text-3xl font-semibold">
+                Up Next
+              </p>
+              <p className="leading-snug text-xl md:text-4xl md:leading-snug xl:text-5xl xl:leading-snug font-semibold">
+                {upcoming.title}
+              </p>
+              <p className="text-gray-400 text-xl font-light md:text-3xl lg:text-4xl">
+                {upcomingDateTime.toLocaleDateString('en-US', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})}, {upcomingDateTime.toLocaleTimeString('en-UK', {
+                  timeZone: 'UTC',
+                  timeStyle: 'short',
+                })} UTC
+              </p>
+            </div>
           </div>
-        </div>
 
-        <div className="mb-8 w-3/5 ml-auto lg:w-full lg:ml-0 lg:col-span-3">
-          <div className="relative">
-            <Image
-                src={'/ProfilePhotos/' + upcoming.guest.image}
-                alt={upcoming.guest.name}
-                placeholder="blur"
-                blurDataURL={'/ProfilePhotos/' + upcoming.guest.placeholderImage}
-                width="384"
-                height="384"
-                className="drop-shadow-lg"
-            />
-            <span className="bg-bd-navy-200 text-bd-orange-500 p-4 absolute -bottom-6 -right-6 text-lg drop-shadow-lg lg:text-3xl">
-                {upcoming.guest.name}
-              </span>
+          <div className="mb-8 w-3/5 ml-auto lg:w-full lg:ml-0 lg:col-span-3">
+            <div className="relative">
+              <Image
+                  src={'/ProfilePhotos/' + upcoming.guest.image}
+                  alt={upcoming.guest.name}
+                  placeholder="blur"
+                  blurDataURL={'/ProfilePhotos/' + upcoming.guest.placeholderImage}
+                  width="384"
+                  height="384"
+                  className="drop-shadow-lg"
+              />
+              <span className="bg-bd-navy-200 text-bd-orange-500 p-4 absolute -bottom-6 -right-6 text-lg drop-shadow-lg lg:text-3xl">
+                  {upcoming.guest.name}
+                </span>
+            </div>
           </div>
-        </div>
 
-        <div className="mb-8 w-3/5 md:m-0 md:w-1/3 lg:col-span-2 lg:col-start-4 lg:w-full">
-          <div className="relative">
-            <Image
-                src={'/ProfilePhotos/' + upcoming.host.image}
-                alt={upcoming.host.name}
-                placeholder="blur"
-                blurDataURL={'/ProfilePhotos/' + upcoming.host.placeholderImage}
-                width="384"
-                height="384"
-                className="drop-shadow-lg"
-            />
-            <span className="bg-bd-navy-200 text-bd-orange-500 p-4 absolute -bottom-6 -right-6 text-lg drop-shadow-lg lg:text-3xl">
-                {upcoming.host.name}
-              </span>
+          <div className="mb-8 w-3/5 md:m-0 md:w-1/3 lg:col-span-2 lg:col-start-4 lg:w-full">
+            <div className="relative">
+              <Image
+                  src={'/ProfilePhotos/' + upcoming.host.image}
+                  alt={upcoming.host.name}
+                  placeholder="blur"
+                  blurDataURL={'/ProfilePhotos/' + upcoming.host.placeholderImage}
+                  width="384"
+                  height="384"
+                  className="drop-shadow-lg"
+              />
+              <span className="bg-bd-navy-200 text-bd-orange-500 p-4 absolute -bottom-6 -right-6 text-lg drop-shadow-lg lg:text-3xl">
+                  {upcoming.host.name}
+                </span>
+            </div>
           </div>
         </div>
-      </div>
+      }
 
       <div className="p-8 flex flex-col space-y-8">
         <p className="text-center text-lg md:text-2xl lg:text-3xl xl:text-4xl max-w-4xl mx-auto">

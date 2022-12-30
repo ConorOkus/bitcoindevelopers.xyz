@@ -49,7 +49,7 @@ export default async function handler(
 
   if(!await data.access_token) return false
   else {
-    const twitchResponse = await fetch('https://api.twitch.tv/helix/streams?user_login=' + process.env.TWITCH_USER_LOGIN, {
+    const twitchResponse = await fetch('https://api.twitch.tv/helix/streams?user_login=' + process.env.NEXT_PUBLIC_TWITCH_USER_LOGIN, {
       method: 'GET',
       headers: {
         'Client-ID': process.env.TWITCH_CLIENT_ID + '',
