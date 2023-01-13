@@ -33,12 +33,12 @@ export default function Layout(props:LayoutProps) {
     }, [prefersDarkMode])
 
     const toggleDarkMode = () => {
-        if(localStorage.darkMode === '1') {
+        if(localStorage.darkMode === '1' || prefersDarkMode && localStorage.darkMode == undefined) {
             setDarkMode(false)
             localStorage.darkMode = '0'
             document.documentElement.classList.remove('dark')
         }
-        else if(localStorage.darkMode === '0') {
+        else if(localStorage.darkMode === '0' || !prefersDarkMode && localStorage.darkMode == undefined) {
             setDarkMode(true)
             localStorage.darkMode = '1'
             document.documentElement.classList.add('dark')
