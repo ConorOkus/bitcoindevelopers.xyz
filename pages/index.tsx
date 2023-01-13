@@ -10,6 +10,7 @@ import matter from "gray-matter"
 import TagRow from "../components/TagRow"
 import EpisodeGrid from "../components/EpisodeGrid"
 import TwitchStream from "../components/TwitchStream";
+import YouTube, {YouTubeProps} from "react-youtube";
 
 export async function getStaticProps(){
   const files = fs.readdirSync(path.join('episodes'))
@@ -31,6 +32,13 @@ export async function getStaticProps(){
 
 export default function Home({episodes}: {episodes: Array<any>;}){
   const [twitchLive, setTwitchLive] = useState(false)
+  const [videoReady, setVideoReady] = React.useState(false)
+  const [videoPlayer, setVideoPlayer] = React.useState()
+  const youtubeOptions: YouTubeProps['opts'] = {
+    playerVars: {
+      autoplay: 1
+    }
+  }
   const checkedStream = React.useRef(false)
 
   const currentTime = new Date()
@@ -62,10 +70,18 @@ export default function Home({episodes}: {episodes: Array<any>;}){
         guest: sorted[i].frontmatter.guest,
         image: sorted[i].frontmatter.image,
         placeholderImage: sorted[i].frontmatter.placeholderImage,
+        video: sorted[i].frontmatter.video
       }]
     }
 
     return formatted
+  }
+
+  const getVideoId = (videoUrl:string)=>{
+    let videoId:string = ''
+    if(videoUrl.indexOf('?v=') >= 0) videoId = videoUrl.slice(videoUrl.indexOf('?v=')+3)
+    else if(videoUrl.indexOf('.be/') >= 0) videoId = videoUrl.slice( videoUrl.indexOf('.be/') + 4 )
+    return videoId
   }
 
   React.useEffect(()=>{
@@ -82,8 +98,18 @@ export default function Home({episodes}: {episodes: Array<any>;}){
 
   return (
     <Layout>
-      {twitchLive || currentTime.getTime() > upcomingDateTime.getTime() ?
+      {twitchLive ?
         <TwitchStream src={twitchSrc} />
+      : currentTime.getTime() > upcomingDateTime.getTime() ?
+          <div className="bg-bd-navy-200 relative h-0 w-full pb-[56.25%] overflow-hidden cursor-pointer">
+            <YouTube
+              videoId={getVideoId(formattedEpisodes()[0].video)}
+              className="youtube"
+              loading="eager"
+              opts={youtubeOptions}
+              onReady={(e)=>{setVideoReady(true); setVideoPlayer(e.target); }}
+            />
+          </div>
       :
         <div className="bg-dark-1 bg-center bg-cover p-8 lg:grid lg:grid-cols-8 lg:gap-8">
           <div className="lg:w-full lg:col-span-5">
