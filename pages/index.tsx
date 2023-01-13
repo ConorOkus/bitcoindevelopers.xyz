@@ -101,7 +101,7 @@ export default function Home({episodes}: {episodes: Array<any>;}){
       {twitchLive ?
         <TwitchStream src={twitchSrc} />
       : currentTime.getTime() > upcomingDateTime.getTime() ?
-          <div className="bg-bd-navy-200 relative h-0 w-full pb-[56.25%] overflow-hidden cursor-pointer">
+        <div className="bg-bd-navy-200 relative h-0 w-full pb-[56.25%] overflow-hidden cursor-pointer">
             <YouTube
               videoId={getVideoId(formattedEpisodes()[0].video)}
               className="youtube"
