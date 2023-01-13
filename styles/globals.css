@@ -1,16 +1,43 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    @apply bg-white text-black bg-[url('/bg-light.svg')] bg-repeat bg-center bg-auto bg-fixed;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+html.dark {
+    @apply bg-black text-white bg-[url('/bg-dark.svg')];
 }
 
-* {
-  box-sizing: border-box;
+strong {
+    @apply font-semibold;
+}
+
+.episode-notes h2 {
+    @apply text-2xl;
+}
+
+.episode-notes ul {
+    @apply list-disc;
+}
+
+.episode-notes a {
+    @apply underline;
+}
+
+.video-preview.ready:hover img {
+    @apply blur scale-105;
+}
+
+.video-preview:hover .icon-container {
+    @apply bg-black/25;
+}
+
+.video-preview:hover svg {
+    @apply opacity-40;
+}
+
+.youtube iframe {
+    @apply w-full absolute top-0 left-0 h-full;
 }
