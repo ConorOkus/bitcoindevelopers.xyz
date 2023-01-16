@@ -14,7 +14,7 @@ export default function Episode(props: EpisodeProps){
   return(
     <div className="flex flex-col">
       <Link href={'/episodes/' + props.slug}>
-        <div className="bg-dark-1 bg-center bg-cover p-12 relative">
+        <div className="bg-dark-1 bg-center bg-cover p-12 mb-4 relative">
           {props.image ?
             <Image
               src={'/ProfilePhotos/' + props.image}
@@ -29,7 +29,7 @@ export default function Episode(props: EpisodeProps){
           <span className="bg-bd-navy-200 text-bd-orange-500 p-2 drop-shadow-md absolute bottom-8 right-8">{props.guest}</span>
         </div>
       </Link>
-      <h3 className="text-2xl">
+      <h3 className="text-2xl mb-2">
         <Link href={'/episodes/' + props.slug}>
           {props.title}
         </Link>
