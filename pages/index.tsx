@@ -111,7 +111,7 @@ export default function Home({episodes}: {episodes: Array<any>;}){
             />
           </div>
       :
-        <div className="bg-dark-1 bg-center bg-cover p-8 lg:grid lg:grid-cols-8 lg:gap-8">
+        <div className="bg-dark-1 bg-center bg-cover p-8 lg:grid lg:grid-cols-8 lg:gap-8 mb-4">
           <div className="lg:w-full lg:col-span-5">
             <div className="bg-bd-navy-100 text-white p-8 flex flex-col space-y-2 drop-shadow-lg mb-8 md:space-y-4 lg:w-full">
               <p className="uppercase text-bd-orange-500 text-xl md:text-3xl font-semibold">
