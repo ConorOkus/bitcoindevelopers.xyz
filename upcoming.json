@@ -1,14 +1,14 @@
 {
-    "title": "How to Contribute to LDK - Part 1",
-    "guest": {
-        "name": "Val Wallace",
-        "image": "ValWallace.jpg",
-        "placeholderImage": "ValWallace@16px.jpg"
-    },
-    "host": {
-        "name": "Conor Okus",
-        "image": "ConorOkus.jpg",
-        "placeholderImage": "ConorOkus@16px.jpg"
-    },
-    "dateTime": "2023-01-26T18:30:00.000Z"
+  "title": "Flutter Development: Make Your First App with BDK-Flutter",
+  "guest": {
+    "name": "Bitcoin Zavior",
+    "image": "BitcoinZavior.jpg",
+    "placeholderImage": "BitcoinZaviore@16px.jpg"
+  },
+  "host": {
+    "name": "Conor Okus",
+    "image": "ConorOkus.jpg",
+    "placeholderImage": "ConorOkus@16px.jpg"
+  },
+  "dateTime": "2023-06-15T16:30:00.000Z"
 }
